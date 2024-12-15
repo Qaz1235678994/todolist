@@ -1,0 +1,67 @@
+/* 基本 CSS */
+* {
+    box-sizing: border-box;
+  }
+  html{
+    font-size: 62.5%;
+  }
+  body{
+    margin: 0;
+    background: rgb(10,0,36);
+    background: radial-gradient(circle, rgba(10,0,36,0.1110819327731093) 0%, rgba(9,9,121,0.1110819327731093) 5%, rgba(0,212,255,0.04665616246498594) 100%);
+  }
+  article.task_container{
+    width: 600px;
+    margin: 50px auto 0;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 1px 1px 5px gray;
+  }
+  h1.title1{
+    font-size: 2.4rem;
+    margin: 0 0 10px 0;
+  }
+  
+  /* ===== 任務新增 ===== */
+  div.task_add_block{
+    font-size: 0;
+    transition: transform .5s, box-shadow .5s;
+  }
+  div.task_add_block.-on{
+    box-shadow: 0 0 5px gray;
+    transform: scale(1.01);
+    transform-origin: center center;
+  }
+  div.task_add_block input.task_name{
+    width: calc(100% - 50px);
+    border: 1px solid lightgray;
+    border-radius: 3px 0 0 3px;
+    height: 40px;
+    font-size: 2rem;
+    padding: 5px 10px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+  }
+  input.task_name::placeholder{
+    color: lightgray;
+  }
+  div.task_add_block button.task_add{
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    vertical-align: top;
+    border: 1px solid lightgray;
+    border-left: 0;
+    background-color: white;
+    box-shadow: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    outline: none;
+    border-radius: 0 3px 3px 0;
+  }
+  div.task_add_block button.task_add:active{
+    box-shadow: 1px 1px 3px lightgray inset, -1px -1px 3px lightgray inset;
+    background-color: #fcfcfc;
+    font-size: 1.5rem;
+  }
