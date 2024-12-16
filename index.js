@@ -23,7 +23,7 @@ function addTask() {
    if ($("input.task_name").val() == "") {
       alert("不能是空的");
    } else {
-      $("input.task_name").val("");
+      
       $("ul.task_list").prepend(`<li>
          <div class="item_flex">
            <div class="left_block">
@@ -40,7 +40,8 @@ function addTask() {
                <span class="star" data-star="4"><i class="fas fa-star"></i></span>
                <span class="star" data-star="5"><i class="fas fa-star"></i></span>
              </div>
-             <p class="para">這是任務這是任務這是任務這是任務這是任務這是任務這是任務這是任務這是任務這是任務這是任務這是任務</p>
+             <p class="para">${$("input.task_name").val()}</p>
+             <input type="text" class="task_name_update -none" placeholder="更新待辦事項…" value="${$("input.task_name").val()}">
            </div>
            <div class="right_block">
              <div class="btn_flex">
@@ -50,6 +51,7 @@ function addTask() {
            </div>
          </div>
        </li>`);
+       $("input.task_name").val("");
    }
 }
 
@@ -67,6 +69,13 @@ $(document).on("keyup", function(e){
 
 
 // 按下「移除」按鈕，淡出 1 秒，然後移除該筆待辦事項。
+$(document).on("click", "button.btn_delete", function(){
+   // console.log("移除按鈕")
+   setTimeout(() => {
+      $(this).closest("li").remove();
+    }, 1000);
+});
+
 
 // 按下「清空」按鈕，淡出 1 秒，清除全部的待辦事項。
 $("button.btn_empty").on("click", function(){
@@ -75,3 +84,15 @@ $("button.btn_empty").on("click", function(){
       $("ul.task_list").empty();
     }, 1000);
 });
+
+
+// 按下「更新」按鈕，出現一般文字框，然後可以更新。
+$(document).on("click", "button.btn_update", function(){
+   // console.log("更新按鈕");
+   
+});
+// 再按下「更新」按鈕，回到不可編輯的狀態，但待辦事項要是更新的。
+
+// 如果所更新的待辦事項，沒有輸入文字，跳出提醒視窗(alert)，顯示「請輸入待辦事項」。
+
+// 待辦事項的文字若最左邊、最右邊有空格的話，需移除。
