@@ -79,11 +79,12 @@ $(document).on("click", "button.btn_delete", function() {
 
 
 // 按下「清空」按鈕，淡出 1 秒，清除全部的待辦事項。
- $(document).on("click", "button.btn_empty", function() {
-      // console.log("清空按鈕")
-      $("ul.task_list").fadeOut(1000, function() {
-         // console.log(this);
-         $(this).empty();
+$(document).on("click", "button.btn_empty", function() {
+    // console.log("清空按鈕")
+   // 使用 fadeOut() 讓列表逐漸消失，再清空列表內容
+   $("ul.task_list").fadeOut(1000, function() {
+      $(this).empty();  // 清空所有待辦事項
+      $(this).fadeIn(0);  // 恢復透明度，顯示清空後的空列表
    });
 });
 
